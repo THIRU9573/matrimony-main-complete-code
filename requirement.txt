@@ -1,0 +1,19 @@
+frontend:
+
+npm install react-bootstrap bootstrap 
+npm install axios
+npm install react-router-dom
+
+
+backend:
+
+npm init --yes
+npm i express
+npm i nodemon
+npm i mongoose
+npm install cors
+
+
+run backend server 
+command: npx nodemon index.js
+

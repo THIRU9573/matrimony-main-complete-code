@@ -1,0 +1,13 @@
+/* EditProfiles.css */
+
+.editProfiles-container{
+    margin: 200px 100px 0px 100px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 8fr 4fr;
+    gap: 20px;
+    flex-grow: 5;
+}
+.addpartner #comp{
+    margin: 10px;
+}

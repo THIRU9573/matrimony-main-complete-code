@@ -1,0 +1,13 @@
+{
+    "cSpell.words": [
+        "axios",
+        "dosham",
+        "gothram",
+        "nodemon",
+        "Raasi",
+        "userform"
+    ],
+    "files.exclude": {
+        "**/.git": false
+    }
+}
