@@ -21,6 +21,22 @@ function PersonalInfo() {
     fetchData();
   }, []);
 
+  // Add useEffect to fetch data again after form submission
+  useEffect(() => {
+    if (userdatas) {
+        const fetchDataAgain = async () => {
+            try {
+                const response = await axios.get('http://localhost:5000/userdatas');
+                setUserdata(response.data[0]); 
+            } catch (error) {
+                console.error('Error fetching data again:', error);
+            }
+        };
+
+        fetchDataAgain();
+    }
+}, [userdatas]);
+
  
  
   return (

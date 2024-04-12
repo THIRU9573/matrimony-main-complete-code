@@ -29,4 +29,19 @@ app.get("/userdatas", async(req, res) => {
     }
 });
 
+//PUT Update method by Id:
+app.put("/userdatas/:id", async (req, res) => {
+    try {
+        const { id } = req.params;
+        const updatedUserData = await User.findByIdAndUpdate(id, req.body, { new: true });
+        res.send(updatedUserData);
+    } catch (error) {
+        res.status(500).send("Error updating user information");
+    }
+});
+
+
+
+
+
 app.listen(5000);

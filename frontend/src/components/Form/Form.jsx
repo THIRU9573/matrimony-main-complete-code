@@ -1,5 +1,5 @@
 import React from 'react'
-import  { useState } from 'react';
+import  { useState, useEffect } from 'react';
 import axios from 'axios';
 import './Form.css';
 
@@ -48,23 +48,48 @@ function Form() {
     aboutMyFamily: "",
     hobbiesAndInterests: ""
     });
+
+    const [userdatas, setUserdatas] = useState(null);
+
+    useEffect(() => {
+      const fetchData = async () => {
+        try {
+          const response = await axios.get('http://localhost:5000/userdatas');
+          setUserdatas(response.data[0]);
+        } catch (error) {
+          console.error('Error fetching data:', error);
+        }
+      };
+  
+      fetchData();
+    }, []);
+
   
     const handleChange = (e) => {
       setFormData({ ...formData, [e.target.name]: e.target.value || '' });
     };
-  
 
-    const handleSubmit = async (e) => {
-      e.preventDefault();
-      try {
-        const response = await axios.post ('http://localhost:5000/userdatas', formData);
-        console.log(response.data)
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      if (userdatas) {
+        // PUT request:
+        const response = await axios.put(`http://localhost:5000/userdatas/${userdatas._id}`, formData);
+        console.log(response.data);
+        alert('Form updated successfully!');
+      } else {
+        // POST request:
+        const response = await axios.post('http://localhost:5000/userdatas', formData);
+        console.log(response.data);
         alert('Form submitted successfully!');
-      } catch (error) {
-        console.log('Error submitting form:', error);
       }
+    } catch (error) {
+      console.log('Error submitting form:', error);
+    }
   };
-  
+
+ 
     return (
     <div className="user-form-container">
       <form className="user-form" onSubmit={handleSubmit}>
