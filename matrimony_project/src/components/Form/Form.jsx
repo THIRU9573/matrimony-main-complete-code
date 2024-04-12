@@ -3,10 +3,8 @@ import  { useState } from 'react';
 import axios from 'axios';
 import './Form.css';
 
-// import { useHistory } from 'react-router-dom';
 
 function Form() {
-    // const history = useHistory();
 
     const [formData, setFormData] = useState({
     profileFor: "",
@@ -59,9 +57,8 @@ function Form() {
     const handleSubmit = async (e) => {
       e.preventDefault();
       try {
-        const response = await axios.post ('http://localhost:5000/', formData);
+        const response = await axios.post ('http://localhost:5000/userdatas', formData);
         console.log(response.data)
-        // history.push('/success');
         alert('Form submitted successfully!');
       } catch (error) {
         console.log('Error submitting form:', error);

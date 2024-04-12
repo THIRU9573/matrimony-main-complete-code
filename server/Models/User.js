@@ -43,4 +43,5 @@ const usersSchema = new mongoose.Schema({
     hobbiesAndInterests: String,
 })
 
-module.exports = mongoose.model("users", usersSchema)
+// module.exports = mongoose.model("users", usersSchema)
+module.exports = mongoose.model("userdatas", usersSchema)

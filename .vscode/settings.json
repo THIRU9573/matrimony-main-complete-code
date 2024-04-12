@@ -5,7 +5,11 @@
         "gothram",
         "nodemon",
         "Raasi",
-        "userform"
+        "Userdata",
+        "userdatas",
+        "userform",
+        "userinfos",
+        "Usermodel"
     ],
     "files.exclude": {
         "**/.git": false
